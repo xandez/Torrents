@@ -143,11 +143,6 @@
                     $qtd++;
               }
             $cont++;
-            /*$limite = $limite+4;
-            $off = $off+4;
-            echo $cont.",".$limite.",".$off.",".$qtd;
-            $lista[$cont] = $filmecontroller->listar($limite,$off);
-            */
           }
           $reg = mysql_num_rows($lista[$cont]);
           $pagina = $pagina +1;
