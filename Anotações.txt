@@ -5,3 +5,5 @@ Query para buscar a subcategoria do filme:
 
 
 http://127.0.0.1/eds-modules/phpmyadmin4551x170116164552/sql.php?server=1&db=torrents&table=filme_categoria&pos=0&token=d4146e3c1a2f8c3c1ffb06d766efa99c
+
+teste
