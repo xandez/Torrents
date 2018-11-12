@@ -7,6 +7,7 @@ $id = $_GET['id'];
 
 $filmecontrol = new FilmesController();
 $informacao = $filmecontrol->listardados($id);
+$links = $filmecontrol->listarlinks($id);
 ?>
 <html lang="pt-br">
 <head>
@@ -80,20 +81,23 @@ $informacao = $filmecontrol->listardados($id);
 									</ul>
 								</div>
 							</div>
-						</div>
-						<div class="row justify-content-md-center">
-						<h5></h5>
-						</div>
-						<div class="row justify-content-md-center">
-						<div class="alert alert-success" role="alert">
-						  <h3>'.$objeto->link_torrent.'</h3>
-						</div>
-						</div>
-					</div>
-					</div>
-
 					';
-				}
+				}			
+
+				foreach ($links as $torrents){
+					echo '
+					
+				<div class="row justify-content-md-center">
+				<h5></h5>
+				</div>
+					<div class="row justify-content-md-center">
+						<div class="alert alert-success" role="alert">
+							<span>informação'.$torrents->link_torrent.'</span>
+						</div>
+					</div>
+				</div>
+				</div>';
+				}	
 				?>
     		
 	</main>

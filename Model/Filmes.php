@@ -36,7 +36,7 @@ header('Content-Type: text/html; charset=utf-8');
 		}
 
 		public function getdadosfilmes($id){
-			$sql = "SELECT * FROM filme_categoria as fc inner JOIN filme as f on fc.idfilme = f.id inner JOIN subcategoria as s on s.id = f.id INNER JOIN filme_torrent as ft on f.id = ft.idfilme WHERE F.id LIKE '$id'";
+			$sql = "SELECT * FROM filme_categoria as fc inner JOIN filme as f on fc.idfilme = f.id inner JOIN subcategoria as s on s.id = f.id INNER JOIN filme_torrent as ft on f.id = ft.idfilme WHERE F.id LIKE '$id' group by fc.idfilme";
 			$res = mysql_query($sql);
 			$lista = null;
 			while($objeto = mysql_fetch_object($res)){
@@ -46,5 +46,17 @@ header('Content-Type: text/html; charset=utf-8');
 			}
 			return $lista;			
 		}		
+
+		public function listarLinks($id){
+			$sql = "SELECT * FROM filme_torrent where idfilme like '$id'";
+			$res = mysql_query($sql);
+			$lista = null;
+			while($objeto = mysql_fetch_object($res)){
+				if ($objeto != null) {
+					$lista[] = $objeto;
+				}
+			}
+			return $lista;
+		}
 	}
 ?>

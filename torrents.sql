@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Nov-2018 às 14:25
+-- Generation Time: 12-Nov-2018 às 21:40
 -- Versão do servidor: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -81,7 +81,8 @@ INSERT INTO `filme_categoria` (`idfilme`, `categoria`) VALUES
 CREATE TABLE `filme_torrent` (
   `id` int(11) NOT NULL,
   `idfilme` int(11) NOT NULL,
-  `link_torrent` longblob NOT NULL,
+  `link_torrent` longtext COLLATE armscii8_bin NOT NULL,
+  `formato` varchar(60) COLLATE armscii8_bin NOT NULL,
   `res` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
@@ -89,8 +90,9 @@ CREATE TABLE `filme_torrent` (
 -- Extraindo dados da tabela `filme_torrent`
 --
 
-INSERT INTO `filme_torrent` (`id`, `idfilme`, `link_torrent`, `res`) VALUES
-(1, 4, 0x7465737465, 720);
+INSERT INTO `filme_torrent` (`id`, `idfilme`, `link_torrent`, `formato`, `res`) VALUES
+(1, 4, 'magnet:?xt=urn:btih:996BD6485373C4447EEABB776A59525AB7DF9D24&dn=Jumanji%20-%20Bem-Vindo%20%C3%A0%20Selva%202018%20%281080p%29%20DUBLADO%20WWW.BLUDV.COM&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2780%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=http%3a%2f%2fglotorrents.pw%3a80%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftorrent.gresille.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.piratepublic.com%3a1337%2fannounce', 'MP4', 720),
+(2, 4, 'magnet:?xt=urn:btih:996BD6485373C4447EEABB776A59525AB7DF9D24&dn=Jumanji%20-%20Bem-Vindo%20%C3%A0%20Selva%202018%20%281080p%29%20DUBLADO%20WWW.BLUDV.COM&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2780%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=http%3a%2f%2fglotorrents.pw%3a80%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftorrent.gresille.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.piratepublic.com%3a1337%2fannounce', 'MP4', 1080);
 
 -- --------------------------------------------------------
 
@@ -162,7 +164,7 @@ ALTER TABLE `subcategoria`
 -- AUTO_INCREMENT for table `filme_torrent`
 --
 ALTER TABLE `filme_torrent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `subcategoria`
 --

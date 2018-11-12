@@ -29,6 +29,20 @@ class FilmesController{
 			return $erro;
 		}		
 	}	
+
+	public function listarlinks($id){
+		ConexaoBD::conectar();
+
+		$filmes = new Filmes();
+		$link = $filmes->listarLinks($id);
+
+		if($link != null){
+			return $link;
+		}else{
+			$erro = 'Sem informação';
+			return $erro;
+		}
+	}
 }
 
 $controller = new FilmesController();
