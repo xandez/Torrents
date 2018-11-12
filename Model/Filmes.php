@@ -24,7 +24,7 @@ header('Content-Type: text/html; charset=utf-8');
 		}
 
 		public function listarfilmes($limite, $off){
-			$sql = "SELECT * FROM `filme` ORDER BY titulo ASC LIMIT $limite OFFSET $off";
+			$sql = "SELECT * FROM filme_categoria as fc inner JOIN filme as f on fc.idfilme = f.id inner JOIN subcategoria as s on s.id = f.id ORDER BY f.titulo ASC LIMIT $limite OFFSET $off";
 			$res = mysql_query($sql);
 			$lista = null;
 			while ($objeto = mysql_fetch_object($res)) {
@@ -36,7 +36,7 @@ header('Content-Type: text/html; charset=utf-8');
 		}
 
 		public function getdadosfilmes($id){
-			$sql = "SELECT * FROM `filme` WHERE id = '$id'";
+			$sql = "SELECT * FROM filme_categoria as fc inner JOIN filme as f on fc.idfilme = f.id inner JOIN subcategoria as s on s.id = f.id INNER JOIN filme_torrent as ft on f.id = ft.idfilme WHERE F.id LIKE '$id'";
 			$res = mysql_query($sql);
 			$lista = null;
 			while($objeto = mysql_fetch_object($res)){

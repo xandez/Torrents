@@ -73,7 +73,7 @@
     <main role="main" class="container">
       <div id ="content" class="row infinito" href = '1'>
       <?php
-         $limite = 5;
+         $limite = 4;
          if ($pc <= 1) {
            $off = 0;
            $cont = 0;
@@ -123,7 +123,7 @@
               foreach ($lista[$cont] as $objeto) {              
                 echo '        
                     <div class="col-md-3">
-                      <a href="filme.php?filme='.$objeto->titulo.'" id = "btimagem">
+                      <a href="filme.php?id='.$objeto->id.'&filme='.$objeto->titulo.'" id = "btimagem">
                       <div class="card mb-2 box-shadow">
                         <img class="card-img-top" src="'.$objeto->imagem_url.'" alt="Card image cap" height="380" width="50" title="'.utf8_encode($objeto->titulo).'">
                         <div class="card-body">
