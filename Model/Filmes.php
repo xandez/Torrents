@@ -48,7 +48,7 @@ header('Content-Type: text/html; charset=utf-8');
 		}		
 
 		public function listarLinks($id){
-			$sql = "SELECT * FROM filme_torrent where idfilme like '$id'";
+			$sql = "SELECT ft.*, f.titulo FROM filme_torrent as ft inner join filme as f on ft.idfilme = f.id where ft.idfilme = '$id' ORDER BY `ft`.`res`  DESC";
 			$res = mysql_query($sql);
 			$lista = null;
 			while($objeto = mysql_fetch_object($res)){

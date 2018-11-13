@@ -50,49 +50,48 @@ $links = $filmecontrol->listarlinks($id);
 				foreach ($informacao as $objeto) {
 					echo '
 					<div class="row justify-content-md-center">
-					<div class="col-9">
-						<h2>'.utf8_encode($objeto->titulo).'</h2>
-						<h6>'.utf8_encode($objeto->desc_torrent).'</h6>
-						<div class="row" >
-		    				<div class="col-sm-2,5">
-								<div class="card" style="width: 13rem;">
-							  		<img class="card-img-top" src="'.$objeto->imagem_url.'"alt="Card image cap">	  
-									<ul class="list-group list-group-flush">
-									    <li class="list-group-item">'.utf8_encode($objeto->titulo).'</li>
-									    <li class="list-group-item">
-									    	<img src="../Icon/calendar-2x.png">'.$objeto->ano_filme.'<span class="flutua_direita" itemprop="duration"><img src="../Icon/timer-2x.png">'.$objeto->duracao_filme.'</span>			    		
-									    </li>
-									    <li class="list-group-item">'.$objeto->subcategoria.'</li>
-									</ul>
-								</div>	
-							</div>
-							<div class="col-sm-6">
-								<h6>'.utf8_encode($objeto->desc_filme).'</h6>
-							</div>
-							<div class="col-sm-2,5 ">
-								<div class="card " style="width: 13rem;">
-									<ul class="list-group list-group-flush ">
-									    <li class="list-group-item">'.utf8_encode($objeto->audio).'</li>
-									    <li class="list-group-item">'.utf8_encode($objeto->legenda).'</li>
-									    <li class="list-group-item">'.$objeto->formato.'</li>
-									    <li class="list-group-item">'.$objeto->resolucao.'</li>
-									    <li class="list-group-item">'.$objeto->tamanho.'</li>
-									    <li class="list-group-item">'.$objeto->duracao_filme.'</li>
-									</ul>
+						<div class="col-9">
+							<h2>'.utf8_encode($objeto->titulo).'</h2>
+							<h6>'.utf8_encode($objeto->desc_torrent).'</h6>
+							<div class="row" >
+									<div class="col-sm-2,5">
+										<div class="card" style="width: 13rem;">
+												<img class="card-img-top" src="'.$objeto->imagem_url.'"alt="Card image cap">	  
+											<ul class="list-group list-group-flush">
+													<li class="list-group-item">'.utf8_encode($objeto->titulo).'</li>
+													<li class="list-group-item">
+														<img src="../Icon/calendar-2x.png">'.$objeto->ano_filme.'<span class="flutua_direita" itemprop="duration"><img src="../Icon/timer-2x.png">'.$objeto->duracao_filme.'</span>			    		
+													</li>
+													<li class="list-group-item">'.$objeto->subcategoria.'</li>
+											</ul>
+										</div>	
+									</div>
+								<div class="col-sm-6">
+									<h6>'.utf8_encode($objeto->desc_filme).'</h6>
+								</div>
+								<div class="col-sm-2,5 ">
+									<div class="card " style="width: 13rem;">
+										<ul class="list-group list-group-flush ">
+												<li class="list-group-item">'.utf8_encode($objeto->audio).'</li>
+												<li class="list-group-item">'.utf8_encode($objeto->legenda).'</li>
+												<li class="list-group-item">'.$objeto->formato.'</li>
+												<li class="list-group-item">'.$objeto->resolucao.'</li>
+												<li class="list-group-item">'.$objeto->tamanho.'</li>
+												<li class="list-group-item">'.$objeto->duracao_filme.'</li>
+										</ul>
+									</div>
+								</div>
+								</div>
 								</div>
 							</div>
 					';
 				}			
 
 				foreach ($links as $torrents){
-					echo '
-					
-				<div class="row justify-content-md-center">
-				<h5></h5>
-				</div>
+					echo '				
 					<div class="row justify-content-md-center">
 						<div class="alert alert-success" role="alert">
-							<span>informação'.$torrents->link_torrent.'</span>
+							<span>'.utf8_encode($torrents->titulo).'</span>
 						</div>
 					</div>
 				</div>
