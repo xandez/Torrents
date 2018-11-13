@@ -84,19 +84,39 @@ $links = $filmecontrol->listarlinks($id);
 								</div>
 								</div>
 							</div>
+							<h1></h1>
+  							<div class="row justify-content-md-center">
+									<h3>Links</h3>
+								</div>
+							
 					';
 				}			
 
 				foreach ($links as $torrents){
 					echo '				
+					
 					<div class="row justify-content-md-center">
 						<div class="alert alert-success" role="alert">
-							<span>'.utf8_encode($torrents->titulo).'</span>
+							<span><a href ="'.$torrents->link_torrent.'" class="badge ">'.utf8_encode($torrents->titulo).' '.$torrents->formato.' '.$torrents->res.'</a></span>
 						</div>
 					</div>
 				</div>
 				</div>';
 				}	
+
+				foreach ($informacao as $objeto) {
+					echo'
+					<div class="row justify-content-md-center">
+						<h3>Trailer do Filme</h3>
+					</div>
+					<div class="row justify-content-md-center">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" align="middle" src="https://'.$objeto->link_trailer.'" allowfullscreen></iframe>
+						</div>
+					</div>
+					
+					';
+				}
 				?>
     		
 	</main>
