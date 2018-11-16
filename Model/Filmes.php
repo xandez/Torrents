@@ -17,6 +17,7 @@ header('Content-Type: text/html; charset=utf-8');
 		private $duracao_filme;
 		private $imagem_url;
 		private $imagem_url2;
+		private $link_trailer;
 
 
 		public function set($propriedade,$valor){
@@ -29,6 +30,20 @@ header('Content-Type: text/html; charset=utf-8');
 			$lista = null;
 			while ($objeto = mysql_fetch_object($res)) {
 				if ($objeto != null) {
+					$lista[] = $objeto;
+				}
+			}
+			return $lista;
+		}
+
+		public function listarCategoria(){
+			$sql = "SELECT * from subcategoria";
+
+			$res = mysql_query($sql);
+			$lista = null;
+
+			while ($objeto = mysql_fetch_object($res)){
+				if($objeto != null){
 					$lista[] = $objeto;
 				}
 			}
@@ -57,6 +72,16 @@ header('Content-Type: text/html; charset=utf-8');
 				}
 			}
 			return $lista;
+		}
+
+		public function cadastrarFilme(){
+			$sql = "insert into filme (titulo, desc_torrent, desc_filme, ano_filme, audio, legenda, formato, resolucao, tamanho, duracao_filme, imagem_url, imagem_url2, link_trailer) values ('".$this->titulo."','".$this->desc_torrent."','".$this->desc_filme."','".$this->ano_filme."','".$this->audio."','".$this->legenda."','".$this->formato."','".$this->resolucao."','".$this->tamanho."','".$this->duracao_filme."','".$this->imagem_url."','".$this->imagem_url2."','".$this->link_trailer."')";
+
+			if(mysql_query($sql)){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 ?>

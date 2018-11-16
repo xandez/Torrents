@@ -1,6 +1,9 @@
 <?php
     error_reporting(0);
     require_once '../Control/Filmes_controller.php';
+
+    $sub = new FilmesController();
+    $infosub = $sub->listarsub();
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,72 +17,93 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="../Control/Filmes_controller.php?evento=salvarfilme" method="POST">
       <div class="container">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Titulo</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="titulo" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Descrição do torrent</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="">
+                <input name="desctorrent" type="text" class="form-control" id="inputPassword4" placeholder="">
             </div>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Descrição do Filme</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea name="descfilme" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputEmail4">Ano do Filme</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">                
+                <input name="ano" type="text" class="form-control" id="inputEmail4" placeholder="">                
             </div>
             <div class="form-group col-md-3">
                 <label for="inputEmail4">Audio</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="audio" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
             <div class="form-group col-md-3">  
                 <label for="inputEmail4">Legenda</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">                
+                <input name="legenda" type="text" class="form-control" id="inputEmail4" placeholder="">                
             </div>
             <div class="form-group col-md-3">
                 <label for="inputEmail4">Formato</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="formato" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputEmail4">Resolução</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="resolucao" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputEmail4">Tamanho</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="tamanho" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputEmail4">Duração</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="duracao" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Imagem Url 1</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="url1" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Imagem Url 2</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="url2" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="inputEmail4">Link Trailer</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                <input name="link" type="text" class="form-control" id="inputEmail4" placeholder="">
             </div>
+        </div><!--
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Escolha uma categoria</option>
+                <?php
+                    if ($infosub != null){
+                        foreach ($infosub as $objeto){
+                            echo'
+                            <option value="'.$objeto->id.'">'.utf8_encode($objeto->subcategoria).'</option>
+                            ';
+                        }
+                    }else{
+                        echo "Sem informação";
+                    }         
+                ?>
+                </select>
+            </div>            
         </div>
+        -->
         <button type="submit" class="btn btn-primary">Salvar</button>
+        
       </div>
+    
     </form>
     
 </body>
